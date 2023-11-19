@@ -1,0 +1,29 @@
+.content {
+  text-align: center;
+  min-height: 120px;
+  line-height: 120px;
+  color: #ffffff;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+.itemMovie {
+  width: 451px;
+  height: 279px;
+  flex-shrink: 0;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 0;
+
+  /* @shadow-2 */
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+}
+.textItemMovie {
+  color: black;
+}
+.itemMovie-img {
+  display: block;
+  width: 183px;
+  height: 281px;
+  flex-shrink: 0;
+}
