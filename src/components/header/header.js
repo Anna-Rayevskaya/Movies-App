@@ -1,12 +1,11 @@
-import {Header } from 'antd';
+import { Header } from 'antd'
 
-function Menu () {
-    return (
-<div>
-<Header/>
-</div>
-    );
-  };
-  
-  export default Menu;
-  
+function Menu() {
+  return (
+    <div>
+      <Header />
+    </div>
+  )
+}
+
+export default Menu

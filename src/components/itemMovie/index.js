@@ -1,2 +1,3 @@
-import ItemMovie  from './itemMovie'
-export default ItemMovie;
+import ItemMovie from './itemMovie'
+
+export default ItemMovie

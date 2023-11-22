@@ -15,6 +15,30 @@
 .itemMovie-img {
   display: block;
   width: 183px;
-  height: 281px;
+  height: 150px;
   flex-shrink: 0;
+  margin-top: 50px;
+}
+
+.itemMovie-text {
+  text-align: left;
+  padding: 10px 0px;
+}
+
+.genreButton {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 46px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  border: 1px solid #d9d9d9;
+  background: #fafafa;
+}
+
+.itemMovie-date {
+  padding-bottom: 5px;
 }
