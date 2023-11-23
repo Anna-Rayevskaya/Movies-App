@@ -26,6 +26,7 @@ export default class ItemMovie extends Component {
     const { title, text, img, releaseDate } = this.props
     const newText = this.trimText(text)
     const newData = this.formattingDate(releaseDate)
+
     return (
       <Card
         hoverable
