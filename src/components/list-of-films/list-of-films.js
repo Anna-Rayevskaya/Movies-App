@@ -17,7 +17,7 @@ export default class ListOfFilms extends Component {
     const getFilms = new GetFilms()
 
     getFilms
-      .getAllFilms()
+      .getAllFilms('return')
       .then((films) => {
         this.setState({
           films,
