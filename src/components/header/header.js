@@ -1,11 +1,20 @@
-import { Header } from 'antd'
+import { Input } from 'antd'
 
-function Menu() {
+import TabsHeader from '../tabs'
+
+function HeaderSearch() {
+  const { Search } = Input
   return (
     <div>
-      <Header />
+      <TabsHeader />
+      <Search
+        placeholder="Type to search..."
+        style={{
+          width: 940,
+        }}
+      />
     </div>
   )
 }
 
-export default Menu
+export default HeaderSearch

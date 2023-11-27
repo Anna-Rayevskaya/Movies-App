@@ -4,6 +4,8 @@ import { Offline, Online } from 'react-detect-offline'
 
 import './app.css'
 import ListOfFilms from '../list-of-films'
+import HeaderSearch from '../header'
+import PaginationFooter from '../footer'
 
 import imgOops from './1382253558_623686825.jpg'
 
@@ -24,11 +26,15 @@ export default class App extends Component {
             <Layout>
               <Sider className="siderStyle" />
               <Layout>
-                <Header className="headerStyle">Header</Header>
+                <Header className="headerStyle">
+                  <HeaderSearch />
+                </Header>
                 <Content className="content">
                   <ListOfFilms />
                 </Content>
-                <Footer className="footerStyle">Footer</Footer>
+                <Footer className="footerStyle">
+                  <PaginationFooter />
+                </Footer>
               </Layout>
               <Sider className="siderStyle" />
             </Layout>
