@@ -2,19 +2,12 @@ import { Input } from 'antd'
 
 import TabsHeader from '../tabs'
 
-function HeaderSearch() {
-  const { Search } = Input
+function HeaderSearch({ handleKeyUp }) {
   return (
     <div>
       <TabsHeader />
-      <Search
-        placeholder="Type to search..."
-        style={{
-          width: 940,
-        }}
-      />
+      <Input placeholder="Type to search..." onKeyUp={handleKeyUp} />
     </div>
   )
 }
-
 export default HeaderSearch
