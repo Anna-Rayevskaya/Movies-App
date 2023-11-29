@@ -19,6 +19,7 @@ export default class App extends Component {
     error: false,
     page: 1,
     text: null,
+    noMatches: false,
   }
 
   componentDidMount() {
@@ -53,17 +54,25 @@ export default class App extends Component {
     getFilms
       .getAllFilms(text, page)
       .then((filmsList) => {
+        if (filmsList.length === 0) {
+          this.setState({
+            noMatches: true,
+          })
+          // eslint-disable-next-line no-console
+          console.log('No films found.')
+        }
         this.setState({
           films: filmsList,
           loading: false,
           text,
         })
       })
+
       .catch(this.onError)
   }
 
   render() {
-    const { films, loading, error, page } = this.state
+    const { films, loading, error, page, noMatches } = this.state
     return (
       <div>
         <Online>
@@ -81,7 +90,7 @@ export default class App extends Component {
                   <HeaderSearch handleKeyUp={this.handleKeyUp} />
                 </Header>
                 <Content className="content">
-                  <ListOfFilms films={films} loading={loading} error={error} />
+                  <ListOfFilms films={films} loading={loading} error={error} noMatches={noMatches} />
                 </Content>
                 <Footer className="footerStyle" page={page} onClick={this.clickPagination}>
                   <PaginationFooter />
