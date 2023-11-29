@@ -17,6 +17,8 @@ export default class App extends Component {
     films: null,
     loading: true,
     error: false,
+    page: 1,
+    text: null,
   }
 
   componentDidMount() {
@@ -27,7 +29,7 @@ export default class App extends Component {
   }
 
   handleKeyUp = (event) => {
-    this.updateFilms(event.target.value)
+    this.updateFilms(event.target.value, 1)
   }
 
   onError = () => {
@@ -37,8 +39,16 @@ export default class App extends Component {
     })
   }
 
-  updateFilms(text) {
-    const { page } = this.state
+  clickPagination = (event) => {
+    const { text } = this.state
+    const p = event.target.textContent
+    this.setState({
+      page: p,
+    })
+    this.updateFilms(text, p)
+  }
+
+  updateFilms(text, page) {
     const getFilms = new GetFilms()
     getFilms
       .getAllFilms(text, page)
@@ -46,13 +56,14 @@ export default class App extends Component {
         this.setState({
           films: filmsList,
           loading: false,
+          text,
         })
       })
       .catch(this.onError)
   }
 
   render() {
-    const { films, loading, error } = this.state
+    const { films, loading, error, page } = this.state
     return (
       <div>
         <Online>
@@ -72,7 +83,7 @@ export default class App extends Component {
                 <Content className="content">
                   <ListOfFilms films={films} loading={loading} error={error} />
                 </Content>
-                <Footer className="footerStyle">
+                <Footer className="footerStyle" page={page} onClick={this.clickPagination}>
                   <PaginationFooter />
                 </Footer>
               </Layout>
