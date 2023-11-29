@@ -14,27 +14,20 @@ const { Header, Footer, Sider, Content } = Layout
 
 export default class App extends Component {
   state = {
-    films: [],
+    films: null,
     loading: true,
     error: false,
   }
 
-  componentDidMount(text) {
-    const getFilms = new GetFilms()
-
-    getFilms
-      .getAllFilms(text)
-      .then((films) => {
-        this.setState({
-          films,
-          loading: false,
-        })
-      })
-      .catch(this.onError)
+  componentDidMount() {
+    const { films } = this.state
+    if (films == null) {
+      this.updateFilms()
+    }
   }
 
   handleKeyUp = (event) => {
-    this.componentDidMount(event.target.value)
+    this.updateFilms(event.target.value)
   }
 
   onError = () => {
@@ -42,6 +35,20 @@ export default class App extends Component {
       error: true,
       loading: false,
     })
+  }
+
+  updateFilms(text) {
+    const { page } = this.state
+    const getFilms = new GetFilms()
+    getFilms
+      .getAllFilms(text, page)
+      .then((filmsList) => {
+        this.setState({
+          films: filmsList,
+          loading: false,
+        })
+      })
+      .catch(this.onError)
   }
 
   render() {

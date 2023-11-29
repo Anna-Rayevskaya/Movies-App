@@ -27,6 +27,7 @@ export default class ListOfFilms extends Component {
             text={film.overview}
             img={film.backdrop_path}
             releaseDate={film.release_date}
+            voteAverage={film.vote_average}
           />
         ))}
       </Row>
