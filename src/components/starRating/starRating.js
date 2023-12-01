@@ -1,7 +1,7 @@
 import { Rate } from 'antd'
 
-function starRating() {
+function StarRating() {
   return <Rate allowHalf defaultValue={0} />
 }
 
-export default starRating
+export default StarRating

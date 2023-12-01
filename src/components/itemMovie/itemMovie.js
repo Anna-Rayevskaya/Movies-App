@@ -3,7 +3,7 @@ import { Card, Flex, Typography } from 'antd'
 import './itemMovie.css'
 import { format } from 'date-fns'
 
-import starRating from '../starRating'
+import StarRating from '../starRating'
 import imageSrc from '../../error-img.png'
 
 export default class ItemMovie extends Component {
@@ -69,7 +69,7 @@ export default class ItemMovie extends Component {
               <div className="genreButton">Drama</div>
             </Flex>
             <div className="itemMovie-text">{newText}</div>
-            <starRating />
+            <StarRating />
           </Flex>
         </Flex>
       </Card>
