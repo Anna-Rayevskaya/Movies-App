@@ -1,6 +1,6 @@
 export default class Rating {
-  async addRating(idSession) {
-    const url = `https://api.themoviedb.org/3/movie/238/rating?guest_session_id=${idSession}`
+  async addRating(idSession, idFilm) {
+    const url = `https://api.themoviedb.org/3/movie/${idFilm}/rating?guest_session_id=${idSession}`
 
     const res = await fetch(url, {
       method: 'POST',
@@ -37,8 +37,15 @@ export default class Rating {
     return await res.json()
   }
 
-  async addRatingFilm(idSession) {
-    const res = await this.getResource(idSession)
+  async addRatingFilm(idSession, idFilm) {
+    const res = await this.addRating(idSession, idFilm)
+    // eslint-disable-next-line no-console
+    console.log(res)
+    return res
+  }
+
+  async geRatedFilms(idSession) {
+    const res = await this.getRatedMovies(idSession)
     // eslint-disable-next-line no-console
     console.log(res)
     return res

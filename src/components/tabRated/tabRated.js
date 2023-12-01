@@ -3,6 +3,7 @@ import { Component } from 'react'
 
 import ListOfFilms from '../list-of-films'
 import PaginationFooter from '../footer'
+import Rating from '../../services/rating'
 
 const { Footer, Content } = Layout
 export default class TabRated extends Component {
@@ -12,6 +13,23 @@ export default class TabRated extends Component {
     error: false,
     page: 1,
     noMatches: false,
+  }
+
+  componentDidMount() {
+    const { guestSessionId } = this.props
+    // eslint-disable-next-line no-console
+    console.log(guestSessionId, 'TabRated')
+    const addRating = new Rating()
+    addRating
+      .geRatedFilms(guestSessionId)
+      .then((p) => {
+        // eslint-disable-next-line no-console
+        console.log(p)
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error('не удалось отобразить рейтинговые фильмы', error)
+      })
   }
 
   clickPagination = (event) => {

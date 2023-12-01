@@ -7,8 +7,17 @@
                     <Header className="headerStyle">
                         <TabsHeader />
                     </Header>
-                    <TabSearch/> ? <TabRated/>
-                    
+                    <TabSearch>                             ?               <TabRated/>
+
+                    <HeaderSearch/>                                         
+                    <ListOfFilms>                                               <ListOfFilms>
+                            <ItemMovie>                                             <ItemMovie>
+                                <StarRating />                                              <StarRating />
+                            <ItemMovie/>                                            <ItemMovie/>
+                        <ListOfFilms/>                                          <ListOfFilms/>
+                    <PaginationFooter/>                                     <PaginationFooter/>
+
+                    <TabSearch/>                                            <TabRated/>
                 </Layout>
     <Sider/>
     </Layout>

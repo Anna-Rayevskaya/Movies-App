@@ -50,7 +50,9 @@ export default class App extends Component {
 
   render() {
     const { tab, guestSessionId } = this.state
-    const renderTab = tab === 'Search' ? <TabSearch /> : <TabRated guestSessionId={guestSessionId} />
+    console.log(guestSessionId, 'App')
+    const renderTab =
+      tab === 'Search' ? <TabSearch guestSessionId={guestSessionId} /> : <TabRated guestSessionId={guestSessionId} />
     return (
       <div>
         <Online>

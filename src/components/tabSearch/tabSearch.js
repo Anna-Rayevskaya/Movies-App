@@ -68,12 +68,21 @@ export default class TabSearch extends Component {
   }
 
   render() {
+    const { guestSessionId } = this.props
+    // eslint-disable-next-line no-console
+    console.log(guestSessionId, 'TabSearch')
     const { films, loading, error, page, noMatches } = this.state
     return (
       <>
         <Content className="content">
           <HeaderSearch handleKeyUp={this.handleKeyUp} />
-          <ListOfFilms films={films} loading={loading} error={error} noMatches={noMatches} />
+          <ListOfFilms
+            films={films}
+            loading={loading}
+            error={error}
+            noMatches={noMatches}
+            guestSessionId={guestSessionId}
+          />
         </Content>
         <Footer className="footerStyle" page={page} onClick={this.clickPagination}>
           <PaginationFooter />

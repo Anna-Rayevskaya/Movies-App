@@ -8,7 +8,7 @@ import sadCat from '../app/sadCat.jpg'
 
 export default class ListOfFilms extends Component {
   render() {
-    const { films, error, loading, noMatches } = this.props
+    const { films, error, loading, noMatches, guestSessionId } = this.props
     if (loading) {
       return (
         <div className="example">
@@ -40,6 +40,7 @@ export default class ListOfFilms extends Component {
             img={film.backdrop_path}
             releaseDate={film.release_date}
             voteAverage={film.vote_average}
+            guestSessionId={guestSessionId}
           />
         ))}
       </Row>
