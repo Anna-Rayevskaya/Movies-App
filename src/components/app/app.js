@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { Layout, Space, Image } from 'antd'
 import { Component } from 'react'
 import { Offline, Online } from 'react-detect-offline'
@@ -7,6 +8,7 @@ import './app.css'
 import TabSearch from '../tabSearch'
 import TabRated from '../tabRated'
 import TabsHeader from '../tabs'
+import GuestSession from '../../services/guest-session'
 
 import imgOops from './1382253558_623686825.jpg'
 
@@ -15,19 +17,40 @@ const { Sider, Header } = Layout
 export default class App extends Component {
   state = {
     tab: 'Search',
+    guestSessionId: null,
+  }
+
+  componentDidMount() {
+    const { guestSessionId } = this.state
+    if (!guestSessionId) {
+      this.createGuestSession()
+    }
   }
 
   clickTab = (event) => {
     const newTab = event
-    console.log(newTab)
     this.setState({
       tab: newTab,
     })
   }
 
+  createGuestSession() {
+    const openSession = new GuestSession()
+    openSession
+      .getSession()
+      .then((id) => {
+        this.setState({
+          guestSessionId: id.guest_session_id,
+        })
+      })
+      .catch((error) => {
+        console.error('Не удалось создать гостевую сессию:', error)
+      })
+  }
+
   render() {
-    const { tab } = this.state
-    const renderTab = tab === 'Search' ? <TabSearch /> : <TabRated />
+    const { tab, guestSessionId } = this.state
+    const renderTab = tab === 'Search' ? <TabSearch /> : <TabRated guestSessionId={guestSessionId} />
     return (
       <div>
         <Online>

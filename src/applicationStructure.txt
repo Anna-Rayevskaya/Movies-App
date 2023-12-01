@@ -8,6 +8,7 @@
                         <TabsHeader />
                     </Header>
                     <TabSearch/> ? <TabRated/>
+                    
                 </Layout>
     <Sider/>
     </Layout>

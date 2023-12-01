@@ -1,8 +1,9 @@
 import { Component } from 'react'
-import { Card, Flex, Typography, Rate } from 'antd'
+import { Card, Flex, Typography } from 'antd'
 import './itemMovie.css'
 import { format } from 'date-fns'
 
+import starRating from '../starRating'
 import imageSrc from '../../error-img.png'
 
 export default class ItemMovie extends Component {
@@ -68,7 +69,7 @@ export default class ItemMovie extends Component {
               <div className="genreButton">Drama</div>
             </Flex>
             <div className="itemMovie-text">{newText}</div>
-            <Rate disabled defaultValue={voteAverage / 2} />
+            <starRating />
           </Flex>
         </Flex>
       </Card>
