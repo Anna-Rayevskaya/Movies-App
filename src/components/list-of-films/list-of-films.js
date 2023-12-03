@@ -5,6 +5,7 @@ import ItemMovie from '../itemMovie'
 import './list-of-films.css'
 import ErrorIndicator from '../error-indicator'
 import sadCat from '../app/sadCat.jpg'
+import { Consumer } from '../genres-context/genres-context'
 
 export default class ListOfFilms extends Component {
   render() {
@@ -30,20 +31,27 @@ export default class ListOfFilms extends Component {
         </div>
       )
     }
+    // eslint-disable-next-line no-console
     return (
-      <Row justify="space-evenly">
-        {films.map((film) => (
-          <ItemMovie
-            key={film.id}
-            title={film.original_title}
-            text={film.overview}
-            img={film.backdrop_path}
-            releaseDate={film.release_date}
-            voteAverage={film.vote_average}
-            guestSessionId={guestSessionId}
-          />
-        ))}
-      </Row>
+      <Consumer>
+        {(genres) => (
+          <Row justify="space-evenly">
+            {films.map((film) => (
+              <ItemMovie
+                key={film.id}
+                title={film.original_title}
+                text={film.overview}
+                img={film.poster_path}
+                releaseDate={film.release_date}
+                voteAverage={film.vote_average}
+                guestSessionId={guestSessionId}
+                genre={film.genre_ids}
+                genres={genres}
+              />
+            ))}
+          </Row>
+        )}
+      </Consumer>
     )
   }
 }
