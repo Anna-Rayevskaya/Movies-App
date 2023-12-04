@@ -46,19 +46,21 @@ export default class StarRating extends Component {
   render() {
     const { rating } = this.state
     let color = null
-    if (rating <= 3) {
-      color = 'ratingRed'
-    } else if (rating >= 3 && rating <= 5) {
-      color = 'ratingOrange'
-    } else if (rating >= 5 && rating <= 7) {
-      color = 'ratingYellow'
-    } else {
-      color = 'ratingGreen'
+    if (rating) {
+      if (rating <= 3) {
+        color = 'ratingRed'
+      } else if (rating >= 3 && rating <= 5) {
+        color = 'ratingOrange'
+      } else if (rating >= 5 && rating <= 7) {
+        color = 'ratingYellow'
+      } else {
+        color = 'ratingGreen'
+      }
     }
 
     return (
       <div>
-        <div className={color} />
+        <div className={`ratin ${color}`} />
         <div className="numberRating">{rating}</div>
         <Rate allowHalf defaultValue={0} className="rate" onChange={this.clickAddRating} />
       </div>
