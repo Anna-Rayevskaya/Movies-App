@@ -57,3 +57,16 @@
   font-weight: 400;
   line-height: 22px;
 }
+
+.rate {
+  position: absolute;
+  bottom: 30px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .rate {
+    position: absolute;
+    bottom: 10px;
+    left: 5px;
+  }
+}

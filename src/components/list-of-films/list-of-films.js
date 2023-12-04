@@ -26,7 +26,6 @@ export default class ListOfFilms extends Component {
           <Typography.Title level={3} className="title">
             Nothing was found for your request
           </Typography.Title>
-          <h3>Nothing was found for your request</h3>
           <Image width={500} src={sadCat} className="sadCat" />
         </div>
       )

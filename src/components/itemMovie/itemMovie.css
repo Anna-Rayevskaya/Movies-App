@@ -1,6 +1,6 @@
 .itemMovie {
   width: 451px;
-  height: 279px;
+  height: 257px;
   flex-shrink: 0;
   background-color: #fff;
   margin: 10px;
@@ -15,7 +15,8 @@
 }
 .itemMovie-img {
   display: block;
-  width: 38%;
+  width: 170px;
+  height: 256px;
   flex-shrink: 0;
 }
 
@@ -49,4 +50,31 @@
   text-align: center;
   background: rgba(0, 0, 0, 0.05);
   border-radius: 4px;
+}
+.title {
+  text-align: left;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .itemMovie {
+    width: 320px;
+    height: 205px;
+  }
+
+  .itemMovie-img {
+    width: 60px;
+    height: auto;
+    padding-top: 5px;
+    padding-left: 5px;
+  }
+
+  .itemMovie-text {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+  }
+  .starRating {
+    position: absolute;
+    bottom: 5px;
+  }
 }

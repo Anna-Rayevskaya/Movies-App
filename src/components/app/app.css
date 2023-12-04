@@ -40,3 +40,9 @@
   width: 500px;
   height: auto;
 }
+
+@media (min-width: 320px) and (max-width: 1119px) {
+  .siderStyle {
+    display: none;
+  }
+}

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { Layout, Space, Image } from 'antd'
+import { Layout, Image } from 'antd'
 import { Component } from 'react'
 import { Offline, Online } from 'react-detect-offline'
 
@@ -56,24 +56,16 @@ export default class App extends Component {
     return (
       <div>
         <Online>
-          <Space
-            direction="vertical"
-            style={{
-              width: '100%',
-            }}
-            size={[0, 48]}
-          >
+          <Layout className="layout">
+            <Sider className="siderStyle" />
             <Layout>
-              <Sider className="siderStyle" />
-              <Layout>
-                <Header className="headerStyle">
-                  <TabsHeader onClick={this.clickTab} />
-                </Header>
-                {renderTab}
-              </Layout>
-              <Sider className="siderStyle" />
+              <Header className="headerStyle">
+                <TabsHeader onClick={this.clickTab} />
+              </Header>
+              {renderTab}
             </Layout>
-          </Space>
+            <Sider className="siderStyle" />
+          </Layout>
         </Online>
         <Offline>
           <div className="imgOops-conteiner">
