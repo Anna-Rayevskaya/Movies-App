@@ -32,9 +32,13 @@ export default class ItemMovie extends Component {
   addGenres(genres, genre) {
     const arr = []
     for (let i = 0; i < genre.length; i++) {
-      for (let j = 0; j < genres.genres.length; j++) {
-        if (genre[i] === genres.genres[j].id) {
-          arr.push(genres.genres[j].name)
+      if (genre[i].name) {
+        arr.push(genre[i].name)
+      } else {
+        for (let j = 0; j < genres.genres.length; j++) {
+          if (genre[i] === genres.genres[j].id) {
+            arr.push(genres.genres[j].name)
+          }
         }
       }
     }
@@ -42,7 +46,8 @@ export default class ItemMovie extends Component {
   }
 
   render() {
-    const { title, text, img, releaseDate, voteAverage, guestSessionId, genre, genres } = this.props
+    const { title, text, img, releaseDate, voteAverage, guestSessionId, genre, genres, id, addRatingFilm, rated } =
+      this.props
     const newText = this.trimText(text)
     const newData = this.formattingDate(releaseDate)
     const newTitle = this.trimText(title, title)
@@ -96,7 +101,13 @@ export default class ItemMovie extends Component {
               {newGenreRender}
             </Flex>
             <div className="itemMovie-text">{newText}</div>
-            <StarRating voteAverage={voteAverage} guestSessionId={guestSessionId} />
+            <StarRating
+              voteAverage={voteAverage}
+              guestSessionId={guestSessionId}
+              id={id}
+              addRatingFilm={addRatingFilm}
+              rated={rated}
+            />
           </Flex>
         </Flex>
       </Card>
